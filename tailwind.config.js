@@ -13,7 +13,11 @@ export default {
     ],
 
     theme: {
-        extend: {},
+        extend: {
+            backgroundImage:{
+                'eco-1': "url('/public/images/bg-eco-1.svg')",
+            }
+        },
     },
 
     plugins: [forms, typography],

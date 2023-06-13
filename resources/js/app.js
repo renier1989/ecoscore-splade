@@ -1,8 +1,7 @@
 import "./bootstrap";
 import "../css/app.css";
 import "@protonemedia/laravel-splade/dist/style.css";
-import Radio from "../views/vue/radio.vue"
-import Questionario from "../views/vue/questionario.vue"
+import Questionario from "../js/components/questionario.vue"
 
 import { createApp } from "vue/dist/vue.esm-bundler.js";
 import { renderSpladeApp, SpladePlugin } from "@protonemedia/laravel-splade";
@@ -17,7 +16,6 @@ createApp({
         "transform_anchors": false,
         "progress_bar": true,
         "components" : {
-            Radio,
             Questionario,
         }
     })

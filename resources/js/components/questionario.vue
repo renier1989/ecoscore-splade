@@ -1,9 +1,11 @@
 <template>
+<div class="h-[100%] flex items-start justify-end py-28">
+
 <div v-if="params.section == 'questions' && section == 'questions'">
     <div v-for="question in data" :key="question.id">
         <div>
         <div v-if="question.orden == step">
-            <span v-text="question.orden"></span>
+            <!-- <span v-text="question.orden"></span> -->
             <p v-text="question.pregunta"></p>
             <div v-for="opcion in question.opciones" :key="opcion.id">
             <label :for="opcion.id">
@@ -36,12 +38,9 @@
 </div>
 <div v-if="section == 'complete'">
     tu puntuacion fue de <p v-text="puntuacion"></p>
-
     <button type="button" class="bg-indigo-600 text-white rounded-md p-2" @click.prevent="resetLocalStorage()"> Reiniciar el Questionario</button>
 </div>
-<!-- <pre>
-    {{ this.selected }}
-</pre> -->
+</div>
 </template>
 <script>
 import axios from 'axios';
