@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EcoscoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware(['splade'])->group(function () {
-    Route::get('/', fn () => view('home'))->name('home');
-    Route::get('/docs', fn () => view('docs'))->name('docs');
+    // Route::get('/', fn () => view('home'))->name('home');
+    // Route::get('/docs', fn () => view('docs'))->name('docs');
 
     // Registers routes to support the interactive components...
     Route::spladeWithVueBridge();
@@ -28,4 +29,10 @@ Route::middleware(['splade'])->group(function () {
 
     // Registers routes to support async File Uploads with Filepond...
     Route::spladeUploads();
+
+
+    Route::get('/', [EcoscoreController::class, 'index'])->name('index');
+    Route::post('/continue', [EcoscoreController::class, 'continue']);
+    Route::post('/reset', [EcoscoreController::class, 'reset']);
+    Route::post('/finish', [EcoscoreController::class, 'finish']);
 });
